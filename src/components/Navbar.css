@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.nav {
+  width: 100%;
+  height: 70px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;            /* smaller padding fixes overflow */
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  box-sizing: border-box;
+  overflow: hidden;           /* ensures nothing goes outside */
+}
+
+/* LOGO LEFT */
+.logo img {
+  height: 145px;
+  max-width: 130px;          /* prevents big logo pushing items out */
+  object-fit: contain;
+}
+
+/* BUTTONS RIGHT */
+.nav-links {
+  display: flex;
+  gap: 50px;                 /* reduced gap so buttons always fit */
+  flex-wrap: nowrap;         /* prevent text wrapping */
+  max-width: 70%;            /* makes sure it never overflows */
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;        /* stops line breaking */
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: red;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* MOBILE FIX */
+@media (max-width: 900px) {
+
+  /* show hamburger earlier */
+  .hamburger {
+    display: flex;
+  }
+
+  /* hide links by default */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: black;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px;
+    gap: 20px;
+    transform: translateY(-300px);
+    transition: 0.4s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+}

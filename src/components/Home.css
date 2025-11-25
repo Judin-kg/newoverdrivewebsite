@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+.home-container {
+  width: 100%;
+  height: 100vh;
+  background: black;
+  display: flex;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* LEFT CONTENT */
+.left-content {
+  width: 50%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px;
+  gap: 20px;
+}
+
+.title {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* SLIDING TEXT */
+.slide-text {
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.slide-text span {
+  display: inline-block;
+  color: red;
+  animation: slide 8s linear infinite;
+}
+
+/* SLIDE ANIMATION */
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* RIGHT VIDEO SECTION */
+.video-section {
+  width: 30%;
+  height: 100%;
+}
+
+.brand-image {
+  width: 555px;       /* adjust size */
+  height: auto;
+  object-fit: contain;
+}
+
+
+.video-section video {
+  width: 137%;
+  height: 100%;
+  object-fit: cover;
+  margin-left: 100px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .home-container {
+    flex-direction: column;
+  }
+
+  .left-content {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+  }
+
+  .video-section {
+    width: 100%;
+    height: 50vh;
+  }
+}
