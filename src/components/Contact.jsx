@@ -62,14 +62,7 @@ export default function Contact() {
         </form>
       </div>
 
-      <div className="contact-right">
-        <div className="contact-box">
-          <h3>Get in Touch</h3>
-          <p>Email: support@example.com</p>
-          <p>Phone: +91 98765 43210</p>
-          <p>Location: India</p>
-        </div>
-      </div>
+      
 
     </div>
   );
