@@ -9,8 +9,7 @@
   min-height: 100vh;
   background-color: #000000;
   color: #fff;
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   padding: 28px 40px 24px;
   display: flex;
   flex-direction: column;
@@ -58,7 +57,7 @@
   padding-bottom: 6px;
 }
 
-/* hero layout */
+/* hero */
 .dx-hero {
   position: relative;
   flex: 1;
@@ -90,7 +89,6 @@
   transition: 0.35s ease;
 }
 
-/* hover: apply to ALL cards */
 .dx-card:hover {
   transform: rotate(-14deg) scale(1.09);
 }
@@ -105,7 +103,6 @@
 .dx-card-inner {
   width: 100%;
   height: 100%;
-  transform: rotate(0deg);
   padding: 18px 18px 20px;
   display: flex;
   flex-direction: column;
@@ -120,21 +117,10 @@
   overflow: hidden;
 }
 
-/* video */
 .dx-card-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: rotate(-1deg);
-}
-
-/* corrected full overlay */
-.dx-card-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
 }
 
 /* label */
@@ -146,13 +132,12 @@
   text-transform: uppercase;
 }
 
-/* car wrapper */
+/* car image */
 .dx-car-wrapper {
   position: relative;
   z-index: 2;
 }
 
-/* car slide-in */
 .dx-car-img {
   max-width: 860px;
   width: 100%;
@@ -175,7 +160,7 @@
   }
 }
 
-/* bottom strip */
+/* footer */
 .dx-footer {
   margin-top: 28px;
   padding-top: 14px;
@@ -194,7 +179,10 @@
   align-items: center;
 }
 
-/* responsive */
+/* ---------------------------
+      RESPONSIVE LEVEL 1 
+   Tablets – max-width: 900px
+---------------------------- */
 @media (max-width: 900px) {
   .dx-page {
     padding-inline: 18px;
@@ -203,11 +191,83 @@
   .dx-cards {
     left: 50%;
     transform: translateX(-50%) scale(0.75) translateY(-30px);
+    gap: 40px;
+  }
+
+  .dx-car-img {
+    max-width: 680px;
   }
 
   .dx-footer {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+}
+
+/* ---------------------------
+      RESPONSIVE LEVEL 2 
+     Mobile Landscape – 700px
+---------------------------- */
+@media (max-width: 700px) {
+  .dx-cards {
+    transform: translateX(-50%) scale(0.58) translateY(-40px);
+  }
+
+  .dx-car-img {
+    max-width: 520px;
+  }
+
+  .dx-title {
+    font-size: 22px;
+    letter-spacing: 0.25em;
+  }
+}
+
+/* ---------------------------
+      RESPONSIVE LEVEL 3 
+   Mobile Portrait – 500px
+---------------------------- */
+@media (max-width: 500px) {
+  .dx-cards {
+    flex-direction: column;
+    gap: 25px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.75);
+  }
+
+  .dx-card {
+    transform: rotate(-6deg);
+  }
+
+  .dx-car-img {
+    max-width: 400px;
+  }
+
+  .dx-title {
+    font-size: 20px;
+  }
+}
+
+/* ---------------------------
+      RESPONSIVE LEVEL 4 
+           Small Phones – 380px
+---------------------------- */
+@media (max-width: 380px) {
+  .dx-page {
+    padding: 18px 12px;
+  }
+
+  .dx-cards {
+    transform: translateX(-50%) scale(0.68);
+  }
+
+  .dx-car-img {
+    max-width: 330px;
+  }
+
+  .dx-title {
+    font-size: 18px;
   }
 }

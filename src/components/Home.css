@@ -44,48 +44,100 @@
 
 /* SLIDE ANIMATION */
 @keyframes slide {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* RIGHT VIDEO SECTION */
 .video-section {
-  width: 30%;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-section video {
+  width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .brand-image {
-  width: 555px;       /* adjust size */
-  height: auto;
+  width: 100%;
+  max-width: 500px;
   object-fit: contain;
 }
 
+/* ===========================
+      RESPONSIVE DESIGN
+   =========================== */
 
-.video-section video {
-  width: 137%;
-  height: 100%;
-  object-fit: cover;
-  margin-left: 100px;
-}
-
-/* RESPONSIVE */
+/* Tablets (900px and below) */
 @media (max-width: 900px) {
   .home-container {
     flex-direction: column;
+    gap: 20px;
+    height: auto;
   }
 
   .left-content {
     width: 100%;
-    padding: 30px;
+    padding: 30px 20px;
     text-align: center;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .slide-text {
+    font-size: 18px;
   }
 
   .video-section {
     width: 100%;
     height: 50vh;
+  }
+
+  .video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-left: 0;
+  }
+}
+
+/* Mobile Devices (600px and below) */
+@media (max-width: 600px) {
+  .title {
+    font-size: 38px;
+  }
+
+  .slide-text {
+    font-size: 16px;
+  }
+
+  .left-content {
+    padding: 20px;
+  }
+
+  .video-section {
+    height: 40vh;
+  }
+}
+
+/* Small Phones (420px and below) */
+@media (max-width: 420px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .slide-text {
+    font-size: 14px;
+  }
+
+  .video-section {
+    height: 35vh;
   }
 }
