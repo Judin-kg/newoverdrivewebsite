@@ -1,110 +1,85 @@
 import "./DetailingHero.css";
 
-// VIDEOS from src/assets
+// Import your videos
 import ppfVideo from "../assets/ppf.mp4";
 import ceramicVideo from "../assets/ceramics.mp4";
 import grapheneVideo from "../assets/modification.mp4";
 import bodyshopVideo from "../assets/seat.mp4";
 
-// CAR IMAGE
+// Car Image
 import carImg from "../assets/car.png";
 
 export default function DetailingHero() {
   return (
     <div className="dx-page">
-      {/* Logo + Title */}
+
+      {/* Header */}
       <header className="dx-header">
         <div className="dx-logo">
           <span className="dx-logo-circle">DX</span>
           <span className="dx-logo-text">DETAILING XPERTS</span>
         </div>
+
         <h1 className="dx-title">OUR SERVICES</h1>
       </header>
 
-      {/* Cards + Car */}
+      {/* Hero Section */}
       <section className="dx-hero">
-        <div className="dx-cards">
-          {/* Card 1 – PPF */}
-          <div className="dx-card dx-card-1">
-            <div className="dx-card-inner">
-              <div className="dx-card-media">
-                <video
-                  className="dx-card-video"
-                  src={ppfVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-              <div className="dx-card-label">PPF</div>
-            </div>
-          </div>
 
-          {/* Card 2 – Ceramic Coating */}
-          <div className="dx-card dx-card-2">
-            <div className="dx-card-inner">
-              <div className="dx-card-media">
-                <video
-                  className="dx-card-video"
-                  src={ceramicVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-              <div className="dx-card-label">
-                CERAMIC<br />COATING
-              </div>
-            </div>
-          </div>
+        {/* SLIDER */}
+        <div className="dx-slider-container">
+          <div className="dx-slider" id="dxSlider">
 
-          {/* Card 3 – Graphene Coating */}
-          <div className="dx-card dx-card-3">
-            <div className="dx-card-inner">
-              <div className="dx-card-media">
-                <video
-                  className="dx-card-video"
-                  src={grapheneVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-              <div className="dx-card-label">
-                MODIFICATIONS,<br />ACCESSORIES
+            {/* CARD 1 */}
+            <div className="dx-card">
+              <div className="dx-card-inner">
+                <div className="dx-card-media">
+                  <video className="dx-card-video" src={ppfVideo} autoPlay loop muted playsInline />
+                </div>
+                <div className="dx-card-label">PPF</div>
               </div>
             </div>
-          </div>
 
-          {/* Card 4 – Bodyshop */}
-          <div className="dx-card dx-card-4">
-            <div className="dx-card-inner">
-              <div className="dx-card-media">
-                <video
-                  className="dx-card-video"
-                  src={bodyshopVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
+            {/* CARD 2 */}
+            <div className="dx-card">
+              <div className="dx-card-inner">
+                <div className="dx-card-media">
+                  <video className="dx-card-video" src={ceramicVideo} autoPlay loop muted playsInline />
+                </div>
+                <div className="dx-card-label">CERAMIC COATING</div>
               </div>
-              <div className="dx-card-label">LUXURY SEATS</div>
             </div>
+
+            {/* CARD 3 */}
+            <div className="dx-card">
+              <div className="dx-card-inner">
+                <div className="dx-card-media">
+                  <video className="dx-card-video" src={grapheneVideo} autoPlay loop muted playsInline />
+                </div>
+                <div className="dx-card-label">MODIFICATIONS</div>
+              </div>
+            </div>
+
+            {/* CARD 4 */}
+            <div className="dx-card">
+              <div className="dx-card-inner">
+                <div className="dx-card-media">
+                  <video className="dx-card-video" src={bodyshopVideo} autoPlay loop muted playsInline />
+                </div>
+                <div className="dx-card-label">LUXURY SEATS</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Car */}
+        {/* Car Image */}
         <div className="dx-car-wrapper">
-          <img src={carImg} alt="Sports car" className="dx-car-img" />
+          <img src={carImg} alt="Car" className="dx-car-img" />
         </div>
+
       </section>
 
-      {/* Bottom strip */}
-      
     </div>
   );
 }

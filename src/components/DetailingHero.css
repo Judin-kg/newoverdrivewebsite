@@ -1,4 +1,4 @@
-/* reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,15 +7,15 @@
 
 .dx-page {
   min-height: 100vh;
-  background-color: #000000;
-  color: #fff;
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  padding: 28px 40px 24px;
+  background-color: #000;
+  color: white;
+  padding: 28px 40px;
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
 }
 
-/* header */
+/* Header */
 .dx-header {
   display: flex;
   flex-direction: column;
@@ -27,93 +27,91 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
 .dx-logo-circle {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   border: 2px solid #ff1e1e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ff1e1e;
-  font-size: 14px;
+  border-radius: 50%;
   font-weight: 700;
-}
-
-.dx-logo-text {
-  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff1e1e;
 }
 
 .dx-title {
   font-size: 28px;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   border-bottom: 2px solid #ff1e1e;
   padding-bottom: 6px;
 }
 
-/* hero */
+/* Hero Layout */
 .dx-hero {
+  margin-top: 40px;
   position: relative;
   flex: 1;
-  margin-top: 46px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-/* cards container */
-.dx-cards {
+/* Slider Container */
+.dx-slider-container {
+  width: 100%;
   position: absolute;
   top: 0;
   display: flex;
-  gap: 70px;
-  z-index: 1;
+  justify-content: center;
+  z-index: 5;
 }
 
-/* each card */
+/* SLIDER SCROLL */
+.dx-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.dx-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cards */
 .dx-card {
-  width: 210px;
-  height: 370px;
-  background: linear-gradient(180deg, #000000 0%, #000000 80%);
-  border-radius: 16px;
-  overflow: hidden;
-  transform: rotate(-14deg);
-  transform-origin: bottom center;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.8);
-  transition: 0.35s ease;
+  width: 260px;
+  height: 420px;
+  background: #0a0a0a;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  display: inline-block;
+  transition: 0.3s ease;
 }
 
 .dx-card:hover {
-  transform: rotate(-14deg) scale(1.09);
+  transform: scale(1.08);
 }
 
-/* vertical offsets */
-.dx-card-1 { margin-top: 6px; }
-.dx-card-2 { margin-top: 0px; }
-.dx-card-3 { margin-top: 10px; }
-.dx-card-4 { margin-top: 20px; }
-
-/* inner content */
 .dx-card-inner {
-  width: 100%;
   height: 100%;
-  padding: 18px 18px 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* media container */
 .dx-card-media {
   flex: 1;
   border-radius: 12px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -123,36 +121,34 @@
   object-fit: cover;
 }
 
-/* label */
 .dx-card-label {
-  margin-top: 20px;
+  margin-top: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
   font-size: 17px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
 }
 
-/* car image */
+/* Car Image */
 .dx-car-wrapper {
   position: relative;
   z-index: 2;
 }
 
 .dx-car-img {
-  max-width: 860px;
   width: 100%;
+  max-width: 900px;
   height: auto;
-  filter: drop-shadow(0 50px 70px rgba(0, 0, 0, 0.95));
+  filter: drop-shadow(0 50px 70px rgba(0,0,0,0.95));
   opacity: 0;
-  transform: translateX(140px);
-  animation: dx-car-slide-in 1.4s ease-out forwards;
-  animation-delay: 0.4s;
+  transform: translateX(150px);
+  animation: carSlide 1.4s ease forwards;
 }
 
-@keyframes dx-car-slide-in {
+@keyframes carSlide {
   0% {
     opacity: 0;
-    transform: translateX(140px);
+    transform: translateX(150px);
   }
   100% {
     opacity: 1;
@@ -160,114 +156,33 @@
   }
 }
 
-/* footer */
-.dx-footer {
-  margin-top: 28px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.dx-footer-item {
-  display: flex;
-  align-items: center;
-}
-
-/* ---------------------------
-      RESPONSIVE LEVEL 1 
-   Tablets – max-width: 900px
----------------------------- */
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .dx-page {
-    padding-inline: 18px;
-  }
-
-  .dx-cards {
-    left: 50%;
-    transform: translateX(-50%) scale(0.75) translateY(-30px);
-    gap: 40px;
-  }
-
-  .dx-car-img {
-    max-width: 680px;
-  }
-
-  .dx-footer {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-}
-
-/* ---------------------------
-      RESPONSIVE LEVEL 2 
-     Mobile Landscape – 700px
----------------------------- */
-@media (max-width: 700px) {
-  .dx-cards {
-    transform: translateX(-50%) scale(0.58) translateY(-40px);
-  }
-
-  .dx-car-img {
-    max-width: 520px;
-  }
-
-  .dx-title {
-    font-size: 22px;
-    letter-spacing: 0.25em;
-  }
-}
-
-/* ---------------------------
-      RESPONSIVE LEVEL 3 
-   Mobile Portrait – 500px
----------------------------- */
-@media (max-width: 500px) {
-  .dx-cards {
-    flex-direction: column;
-    gap: 25px;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.75);
-  }
-
   .dx-card {
-    transform: rotate(-6deg);
+    width: 230px;
+    height: 390px;
   }
-
   .dx-car-img {
-    max-width: 400px;
-  }
-
-  .dx-title {
-    font-size: 20px;
+    max-width: 700px;
   }
 }
 
-/* ---------------------------
-      RESPONSIVE LEVEL 4 
-           Small Phones – 380px
----------------------------- */
-@media (max-width: 380px) {
-  .dx-page {
-    padding: 18px 12px;
+@media (max-width: 600px) {
+  .dx-card {
+    width: 200px;
+    height: 360px;
   }
-
-  .dx-cards {
-    transform: translateX(-50%) scale(0.68);
-  }
-
   .dx-car-img {
-    max-width: 330px;
+    max-width: 500px;
   }
+}
 
-  .dx-title {
-    font-size: 18px;
+@media (max-width: 400px) {
+  .dx-card {
+    width: 180px;
+    height: 320px;
+  }
+  .dx-car-img {
+    max-width: 380px;
   }
 }
