@@ -66,34 +66,44 @@
    ============================ */
 
 /* TABLETS & SMALL LAPTOPS */
+/* TABLETS + MOBILE - RIGHT SIDE SLIDE MENU */
 @media (max-width: 900px) {
 
   .hamburger {
     display: flex;
+    z-index: 1200; /* so hamburger stays above */
   }
 
+  /* RIGHT SIDE MENU */
   .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    background: black;
+    position: fixed; 
+    top: 0;
+    right: -250px; /* hidden by default */
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(6px);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    padding: 25px 0;
-    transform: translateY(-350px);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s ease;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.4s ease-in-out;
+    z-index: 1100;
+    height: 340px /* above images, videos, everything */
   }
 
+  /* WHEN OPEN */
   .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 0;
   }
 }
+
 
 /* MOBILE PHONES */
 @media (max-width: 600px) {

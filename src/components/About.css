@@ -148,22 +148,26 @@
 /* -----------------------------------------
    TABLETS (max-width: 900px)
 ----------------------------------------- */
+/* -----------------------------------------
+   TABLETS (max-width: 900px)
+----------------------------------------- */
 @media (max-width: 900px) {
   .about-container {
-    flex-direction: column;
+    flex-direction: column-reverse;  /* FIX: IMAGE BELOW TEXT */
     padding: 30px;
     height: auto;
-  }
-
-  .main-image-wrapper {
-    height: 300px;
-    max-width: 100%;
   }
 
   .about-right {
     padding-left: 0;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
+  }
+
+  .main-image-wrapper {
+    height: 300px;
+    max-width: 100%;
+    margin-top: 25px; /* space below text */
   }
 
   .about-title {
