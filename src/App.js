@@ -5,7 +5,8 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import TeslaSlider from './components/About';
 import Contact from './components/Contact';
-import DetailingHero from './components/DetailingHero';
+import Slider from './components/Slider';
+
 
 
 
@@ -15,7 +16,7 @@ function App() {
       <Navbar />
       <Home />
      <TeslaSlider />
-     <DetailingHero />
+     <Slider />
      <Contact />
     </div>
   );
