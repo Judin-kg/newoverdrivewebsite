@@ -3,9 +3,9 @@ import "./About.css";
 
 export default function About() {
   const images = [
-    "/2.png",
-    "/3.png",
-    "/4.png",
+    "/web2.png",
+    "/web3.png",
+    "/web1.png",
     "/5.png",
     "/6.png",
   ];
@@ -28,7 +28,7 @@ export default function About() {
   ];
 
   return (
-    <div className="about-container">
+    <div className="about-container"id="about">
 
       {/* LEFT IMAGE SECTION */}
       <div className="about-left">

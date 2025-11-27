@@ -35,9 +35,9 @@ export default function Navbar() {
         className={`nav-links ${open ? "open" : ""}`}
         ref={menuRef}
       >
+        <a href="#home" onClick={() => setOpen(false)}>Home</a>
         <a href="#about" onClick={() => setOpen(false)}>About</a>
         <a href="#services" onClick={() => setOpen(false)}>Services</a>
-        <a href="#products" onClick={() => setOpen(false)}>Products</a>
         <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
       </div>
 

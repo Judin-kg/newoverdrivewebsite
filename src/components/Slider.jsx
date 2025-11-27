@@ -1,64 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Slider.css";
 
-import img1 from "../assets/modification.JPG";
-import img2 from "../assets/acc.JPG";
-import img3 from "../assets/lax.JPG";
-import img4 from "../assets/car.png";
-
+// 2 images per card
 const cards = [
-  { img: img1, title: "Modification", subtitle: "Personalize Your Car, Maximize Its Potential" },
-  { img: img2, title: "Car Accessories", subtitle: "Experience Comfort Like Never Before" },
-  { img: img3, title: "Laxury Seats", subtitle: "Style, Function, and Innovation" },
-  { img: img4, title: "Ceramics and PPF", subtitle: "Shield Your Ride in Style" },
+  {
+    title: "Modification",
+    subtitle: "Personalize Your Car",
+    images: [
+      require("../assets/modification.JPG"),
+      require("../assets/mod1.JPG")
+    ]
+  },
+  {
+    title: "Accessories",
+    subtitle: "Premium Car Accessories",
+    images: [
+      require("../assets/acc.JPG"),
+      require("../assets/acc1.JPG")
+    ]
+  },
+  {
+    title: "Luxury Seats",
+    subtitle: "Comfort Redefined",
+    images: [
+      require("../assets/lax.JPG"),
+      require("../assets/seat.JPG")
+    ]
+  },
+  {
+    title: "Ceramic + PPF",
+    subtitle: "Ultimate Protection",
+    images: [
+      require("../assets/ppf.jpeg"),
+      require("../assets/ppf1.jpeg")
+    ]
+  }
 ];
 
-const Slider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % cards.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
-  };
+export default function Slider() {
+  const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 2000);
+    const interval = setInterval(() => {
+      setImageIndex((prev) => (prev + 1) % 2); // switch between 0 & 1
+    }, 2000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="slider-container">
+    <div className="slider-container"id="services">
       <h2 className="slider-heading">
         Our <span className="red-text">Services</span>
       </h2>
 
-      <div className="slider-wrapper">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`slider-card ${index === currentIndex ? "active" : ""}`}
-          >
-            <img src={card.img} alt={card.title} />
+      <div className="four-card-wrapper">
+        {cards.map((card, idx) => (
+          <div className="service-card" key={idx}>
+            <div className="image-box">
+              <img
+                src={card.images[imageIndex]}
+                alt={card.title}
+                className="fade-image"
+              />
+            </div>
             <h3>{card.title}</h3>
             <p>{card.subtitle}</p>
           </div>
         ))}
       </div>
-
-      {/* ⬇️ Navigation Arrows */}
-      <div className="slider-arrows">
-        <button className="arrow-btn" onClick={prevSlide}>
-          &#8592;
-        </button>
-        <button className="arrow-btn" onClick={nextSlide}>
-          &#8594;
-        </button>
-      </div>
     </div>
   );
-};
-
-export default Slider;
+}

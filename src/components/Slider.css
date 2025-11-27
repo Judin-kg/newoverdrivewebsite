@@ -1,21 +1,19 @@
-/* General Styles */
+/* -------------------------------------------
+   MAIN CONTAINER
+-------------------------------------------- */
 .slider-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #000;
+  background: #000;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .slider-heading {
   font-size: 3rem;
   margin-bottom: 50px;
-  text-align: center;
   font-family: "Inter", sans-serif;
 }
 
@@ -23,110 +21,93 @@
   color: red;
 }
 
-/* Slider Wrapper */
-.slider-wrapper {
+/* -------------------------------------------
+   FOUR CARD LAYOUT
+-------------------------------------------- */
+.four-card-wrapper {
   display: flex;
-  gap: 30px;
-  position: relative;
-  width: 80%;
-  max-width: 1200px;
-  overflow: hidden;
   justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* Slider Card */
-.slider-card {
-  min-width: 250px;
-  max-width: 250px;
-  height: 350px;
+/* -------------------------------------------
+   SERVICE CARD
+-------------------------------------------- */
+.service-card {
+  width: 260px;
   background: #111;
-  border-radius: 15px;
+  border-radius: 16px;
+  padding-bottom: 20px;
   overflow: hidden;
-  text-align: center;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.5s ease;
-  position: absolute;
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #222;
 }
 
-.slider-card.active {
-  opacity: 1;
-  transform: scale(1);
-  position: relative;
+/* Hover Effect */
+.service-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.45);
 }
 
-.slider-card img {
+/* -------------------------------------------
+   IMAGE BOX (2 IMAGES AUTO-CHANGE)
+-------------------------------------------- */
+.image-box {
   width: 100%;
-  height: 200px;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Active Changing Image */
+.fade-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  animation: fadeSwap 2s ease-in-out;
 }
 
-.slider-card h3 {
-  margin: 15px 0 5px;
-  font-size: 1.2rem;
+/* Fade Animation */
+@keyframes fadeSwap {
+  0% { opacity: 0.2; }
+  40% { opacity: 0.7; }
+  100% { opacity: 1; }
 }
 
-.slider-card p {
+/* -------------------------------------------
+   TEXT INSIDE CARD
+-------------------------------------------- */
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+
+.service-card p {
+  margin-top: 5px;
   font-size: 0.9rem;
   color: #ccc;
+  padding: 0 8px;
 }
 
-/* Arrows under the slider */
-.slider-arrows {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 25px;
-}
-
-.arrow-btn {
-  background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 8px 18px;
-  font-size: 22px;
-  border-radius: 999px; /* pill / circular look */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.arrow-btn:hover {
-  background: #fff;
-  color: #000;
-  transform: translateY(-2px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .slider-wrapper {
-    width: 100%;
-  }
-
-  .slider-card {
-    min-width: 200px;
-    max-width: 200px;
-    height: 300px;
-  }
-
-  .slider-arrows {
-    gap: 20px;
-    margin-top: 20px;
+/* -------------------------------------------
+   RESPONSIVE DESIGN
+-------------------------------------------- */
+@media (max-width: 900px) {
+  .service-card {
+    width: 45%;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .slider-heading {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
-  .slider-card {
-    min-width: 180px;
-    max-width: 180px;
-    height: 280px;
-  }
-
-  .arrow-btn {
-    font-size: 18px;
-    padding: 6px 14px;
+  .service-card {
+    width: 90%;
   }
 }

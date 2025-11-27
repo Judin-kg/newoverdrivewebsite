@@ -18,7 +18,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-container">
+    <div className="contact-container"id="contact">
 
       <div className="contact-left">
         <h1 className="contact-title">
